@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Com2Com": {
+      "commandName": "Project",
+      "commandLineArgs": "COM101 9600 bbb aaa"
+    }
+  }
+}
