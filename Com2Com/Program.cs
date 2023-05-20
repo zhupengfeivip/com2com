@@ -26,6 +26,9 @@ namespace Com2Com
             mqttClient.Connect(clientId);
 
             // 订阅 MQTT 主题
+            // QOS_LEVEL_AT_MOST_ONCE 表示至多一次传输
+            // QOS_LEVEL_AT_LEAST_ONCE 表示至少一次传输
+            // QOS_LEVEL_EXACTLY_ONCE 表示正好一次传输
             mqttClient.Subscribe(new[] { "com2com/" + rcvKey }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
 
 

@@ -32,8 +32,8 @@ com2com.exe com103 2400 c1 c2
 
 设备主机  
 com2com.exe com1 9600 a2 a1  
-com2com.exe com1 9600 b2 b1  
-com2com.exe com1 2400 c2 c1  
+com2com.exe com2 9600 b2 b1  
+com2com.exe com3 2400 c2 c1  
 
 # 参数说明
 
