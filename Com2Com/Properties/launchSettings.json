@@ -2,7 +2,7 @@
   "profiles": {
     "Com2Com": {
       "commandName": "Project",
-      "commandLineArgs": "COM101 9600 bbb aaa"
+      "commandLineArgs": "portName=com101 baudRate=9600 sendKey=aaaaaaa rcvKey=bbbbbb mqttServer=broker.emqx.io"
     }
   }
 }

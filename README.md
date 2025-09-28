@@ -1,6 +1,6 @@
 ﻿# com2com
 开发工具 vs2022  
-开发环境 .NET 6.0  
+开发环境 .NET 8.0  
 支持跨平台
 
 # 开发初衷
@@ -19,21 +19,19 @@
 # 原理介绍
 利用mqtt服务器做中转，设备侧A主机收到的数据发送到mqtt服务器上。B主机通过订阅主题，可以收到相应的数据，再通过虚拟串口发给B主机的串口上。
 
+公网免费开放的mqtt服务器
+broker.mqttdashboard.com
+broker.emqx.io
 
 
 # 使用示例
-
-多个串口运行多条命令就可以了。  
+分别在开发机和设备主机执行下面的指令
 
 开发机  
-com2com.exe com101 9600 a1 a2  
-com2com.exe com102 9600 b1 b2  
-com2com.exe com103 2400 c1 c2  
+com2com.exe portName=com101 baudRate=9600 sendKey=aaaaaaa rcvKey=bbbbbb mqttServer=broker.emqx.io
 
 设备主机  
-com2com.exe com1 9600 a2 a1  
-com2com.exe com2 9600 b2 b1  
-com2com.exe com3 2400 c2 c1  
+com2com.exe portName=com1 baudRate=9600 sendKey=bbbbbb rcvKey=aaaaaaa mqttServer=broker.emqx.io
 
 # 参数说明
 
