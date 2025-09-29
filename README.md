@@ -9,13 +9,15 @@
 
 [下载最新版本](https://gitee.com/bonn_admin/com2com/releases/latest)
 
-
 ## 系统结构图
-![](doc/系统结构图.png '系统结构图')
+
+<img src="doc/系统结构图.png" title="系统结构图" alt="" width="526">
 
 ## 运行效果图
-![](doc/运行界面2.png '系统结构图')
 
+下图中的两个串口调试工具，仅为演示效果使用，实际场景中一个是你的设备，另一个是你的应用程序。
+
+<img title="系统结构图" src="doc/运行界面2.png" alt="" width="699">
 
 # 开发初衷
 
@@ -35,27 +37,40 @@
 利用 mqtt 服务器做中转，设备侧 A 主机收到的数据发送到 mqtt 服务器上。B 主机通过订阅主题，可以收到相应的数据，再通过虚拟串口发给 B 主机的串口上。
 
 公网免费开放的 mqtt 服务器 
+
 ```bash
 broker.mqttdashboard.com  
 broker.emqx.io
 ```
+
 # 使用示例
 
 分别在开发机和设备主机执行下面的指令
 
 开发机
+
 ```bash
 com2com.exe portName=com101 baudRate=9600 sendKey=aaaaaaa rcvKey=bbbbbb mqttServer=broker.emqx.io
 ```
 
 设备主机  
+
 ```bash
 com2com.exe portName=com1 baudRate=9600 sendKey=bbbbbb rcvKey=aaaaaaa mqttServer=broker.emqx.io
 ```
 
 # 参数说明
 
-com2com.exe 是主程序  
-com1 为本地端口号，在设备侧对应的是连接设备的串口号，在主机侧对应的是虚拟串口。  
-9600 为波特率  
-a b 这是两个密钥对，必须成对出现。在设备侧是 a b，在开发机侧就是 b a。字符串随意起。但是最好是唯一的，如果其他人也使用同样的密钥对，就也能接收到你的数据了。
+com2com.exe 是主程序，以下参数大小写不能改变，各参数是间用空格分开。
+
+| 参数           | 说明                | 示例                        |
+| ------------ | ----------------- | ------------------------- |
+| portName     | 串口号，以com开头，比如com1 | portName=com101           |
+| baudRate     | 串口波特率             | baudRate=9600             |
+| sendKey      | 发送密钥              | sendKey=aaaaaaa           |
+| rcvKey       | 接收密钥              | rcvKey=bbbbbb             |
+| mqttServer   | mqtt服务器地址         | mqttServer=broker.emqx.io |
+| mqttUserName | mqtt登录用户名         | mqttUserName=test         |
+| mqttPwd      | mqtt登录密码          | mqttPwd=test@88888        |
+
+发送密钥和接收密钥是两个密钥对，必须成对出现。在设备侧是 a和b，在开发机侧就是 b和a。字符串随意起。但是最好是唯一的，如果其他人也使用同样的密钥对，就也能接收到你的数据了。
