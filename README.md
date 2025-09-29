@@ -9,7 +9,9 @@
 
 [下载最新版本](https://gitee.com/bonn_admin/com2com/releases/latest)
 
-![doc/系统结构图.png](系统结构图)
+
+## 系统结构图
+![](doc/系统结构图.png '系统结构图')
 
 
 # 开发初衷
