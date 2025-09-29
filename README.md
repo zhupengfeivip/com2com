@@ -29,8 +29,8 @@
 1. 将 com2com.exe 复制到设备连接的电脑主机上，和本地开发机，各一份。
 2. 设备连接的电脑（称为 A 主机），能够用串口工具正常通讯。
 3. 开发主机（称为 B 主机），需要使用虚拟串口工具，模拟出一对串口。比如 com1 和 com101。
-4. 在 A 主机上运行 com2com.exe com1 9600 a b，COM1 是和设备通讯的串口号，9200 是波特率。后面的 a,b 为密钥对。前面的 a 表示自己，后面 b 表示要发给谁。
-5. 在 B 主机上运行 com2com.exe com101 9600 b a，此时主机打开 com1 串口，就可以正常通讯了。主机可以认为 com1 接的就是远程的设备。
+4. 在 A 主机上运行 `com2com.exe portName=com101 baudRate=9600 sendKey=aaaaaaa rcvKey=bbbbbb mqttServer=broker.emqx.io`，COM1 是和设备通讯的串口号，9200 是波特率。后面的 a,b 为密钥对。前面的 a 表示自己，后面 b 表示要发给谁。
+5. 在 B 主机上运行 `com2com.exe portName=com1 baudRate=9600 sendKey=bbbbbb rcvKey=aaaaaaa mqttServer=broker.emqx.io`，此时主机打开 com1 串口，就可以正常通讯了。主机可以认为 com1 接的就是远程的设备。
 
 # 原理介绍
 
