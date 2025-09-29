@@ -9,7 +9,7 @@
 
 [下载最新版本](https://gitee.com/bonn_admin/com2com/releases/latest)
 
-![doc//系统结构图.png](系统结构图)
+![doc/系统结构图.png](系统结构图)
 
 
 # 开发初衷
@@ -29,19 +29,24 @@
 
 利用 mqtt 服务器做中转，设备侧 A 主机收到的数据发送到 mqtt 服务器上。B 主机通过订阅主题，可以收到相应的数据，再通过虚拟串口发给 B 主机的串口上。
 
-公网免费开放的 mqtt 服务器  
+公网免费开放的 mqtt 服务器 
+```bash
 broker.mqttdashboard.com  
 broker.emqx.io
-
+```
 # 使用示例
 
 分别在开发机和设备主机执行下面的指令
 
-开发机  
+开发机
+```bash
 com2com.exe portName=com101 baudRate=9600 sendKey=aaaaaaa rcvKey=bbbbbb mqttServer=broker.emqx.io
+```
 
 设备主机  
+```bash
 com2com.exe portName=com1 baudRate=9600 sendKey=bbbbbb rcvKey=aaaaaaa mqttServer=broker.emqx.io
+```
 
 # 参数说明
 
