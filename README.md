@@ -5,7 +5,7 @@
 支持跨平台
 
 [Gitee](https://gitee.com/bonn_admin/com2com)
-[Github](https://github.com/bonn-admin/com2com)
+[Github](https://github.com/zhupengfeivip/com2com)
 
 [下载最新版本](https://gitee.com/bonn_admin/com2com/releases/latest)
 

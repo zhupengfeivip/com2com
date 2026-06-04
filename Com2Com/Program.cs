@@ -50,6 +50,9 @@ public class Program {
     /// </summary>
     private static string mqttPwd = "";
 
+    /// <summary>
+    /// 
+    /// </summary>
     private static Log Log = new();
 
     public static void Main(string[] args) {
