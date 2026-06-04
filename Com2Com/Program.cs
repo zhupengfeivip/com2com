@@ -5,14 +5,49 @@ using uPLibrary.Networking.M2Mqtt.Messages;
 
 namespace Com2Com;
 
+/// <summary>
+/// 
+/// </summary>
 public class Program {
+
+    /// <summary>
+    /// 本地串口号
+    /// </summary>
     private static string portName = "COM1";
+    
+    /// <summary>
+    /// 串口对应的波特率
+    /// </summary>
     private static int baudRate = 9600;
+    
+    /// <summary>
+    /// 
+    /// </summary>
     private static string sendKey = "SEND_KEY";
+    
+    /// <summary>
+    /// 
+    /// </summary>
     private static string rcvKey = "RECEIVE_KEY";
+    
+    /// <summary>
+    /// MQTT服务器地址
+    /// </summary>
     private static string mqttServer = "broker.emqx.io";
+
+    /// <summary>
+    /// MQTT服务器端口
+    /// </summary>
     private static int mqttPort = 0;
+
+    /// <summary>
+    /// MQTT访问用户名
+    /// </summary>
     private static string mqttUserName = "";
+
+    /// <summary>
+    /// MQTT访问密码
+    /// </summary>
     private static string mqttPwd = "";
 
     private static Log Log = new();
@@ -22,7 +57,9 @@ public class Program {
 
         const int paramCont = 5;
         if (args.Length < paramCont) {
-            Log.Error($"参数数量必须是{paramCont}个，请查看说明文档。");
+            Log.Error($"缺少运行必要的参数，请查看使用说明文档。");
+            Console.WriteLine("按任意键退出...");
+            Console.ReadKey();
             return;
         }
 
@@ -141,22 +178,3 @@ public class Program {
     }
 }
 
-public class Log {
-
-    public void Debug(string msg) {
-        Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}  {msg}");
-    }
-
-    public void Info(string msg) {
-        Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}  {msg}");
-    }
-
-    public void Error(string msg) {
-        Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}  {msg}");
-    }
-
-    public void Error(Exception e) {
-        Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}  {e.ToString()}");
-    }
-
-}
