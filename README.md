@@ -2,22 +2,12 @@
 
 开发工具 vs2022  
 开发环境 .NET 8.0  
-支持跨平台
+支持跨平台，可以运行在Windows，Linux等操作系统
 
 [Gitee](https://gitee.com/bonn_admin/com2com)
 [Github](https://github.com/zhupengfeivip/com2com)
 
 [下载最新版本](https://gitee.com/bonn_admin/com2com/releases/latest)
-
-## 系统结构图
-
-<img src="doc/系统结构图.png" title="系统结构图" alt="" width="526">
-
-## 运行效果图
-
-下图中的两个串口调试工具，仅为演示效果使用，实际场景中一个是你的设备，另一个是你的应用程序。
-
-<img title="系统结构图" src="doc/运行界面2.png" alt="" width="699">
 
 # 开发初衷
 
@@ -32,16 +22,23 @@
 4. 在 A 主机上运行 `com2com.exe portName=com101 baudRate=9600 sendKey=aaaaaaa rcvKey=bbbbbb mqttServer=broker.emqx.io`，COM1 是和设备通讯的串口号，9200 是波特率。后面的 a,b 为密钥对。前面的 a 表示自己，后面 b 表示要发给谁。
 5. 在 B 主机上运行 `com2com.exe portName=com1 baudRate=9600 sendKey=bbbbbb rcvKey=aaaaaaa mqttServer=broker.emqx.io`，此时主机打开 com1 串口，就可以正常通讯了。主机可以认为 com1 接的就是远程的设备。
 
+
+
+## 运行效果图
+
+下图中的两个串口调试工具，仅为演示效果使用，实际场景中一个是你的设备，另一个是你的应用程序。
+
+<img title="系统结构图" src="doc/运行界面2.png" alt="" width="699">
+
+
 # 原理介绍
 
 利用 mqtt 服务器做中转，设备侧 A 主机收到的数据发送到 mqtt 服务器上。B 主机通过订阅主题，可以收到相应的数据，再通过虚拟串口发给 B 主机的串口上。
 
-公网免费开放的 mqtt 服务器 
 
-```bash
-broker.mqttdashboard.com  
-broker.emqx.io
-```
+## 系统结构图
+
+<img src="doc/系统结构图.png" title="系统结构图" alt="" width="526">
 
 # 使用示例
 
@@ -74,3 +71,18 @@ com2com.exe 是主程序，以下参数大小写不能改变，各参数是间�
 | mqttPwd      | mqtt登录密码          | mqttPwd=test@88888        |
 
 发送密钥和接收密钥是两个密钥对，必须成对出现。在设备侧是 a和b，在开发机侧就是 b和a。字符串随意起。但是最好是唯一的，如果其他人也使用同样的密钥对，就也能接收到你的数据了。
+
+
+# 其他
+
+
+公网免费开放的 mqtt 服务器 
+
+```bash
+broker.mqttdashboard.com  
+broker.emqx.io
+```
+
+# 已知问题
+
+目前mqtt端口暂不支持设置

@@ -21,12 +21,12 @@ public class Program {
     private static int baudRate = 9600;
     
     /// <summary>
-    /// 
+    /// 发送消息唯一KEY
     /// </summary>
     private static string sendKey = "SEND_KEY";
     
     /// <summary>
-    /// 
+    /// 接收消息唯一KEY
     /// </summary>
     private static string rcvKey = "RECEIVE_KEY";
     
@@ -51,7 +51,7 @@ public class Program {
     private static string mqttPwd = "";
 
     /// <summary>
-    /// 
+    /// 日志
     /// </summary>
     private static Log Log = new();
 
